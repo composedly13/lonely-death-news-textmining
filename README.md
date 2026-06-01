@@ -98,6 +98,24 @@ pip install -r requirements.txt
     https://raw.githubusercontent.com/park1200656/KnuSentiLex/master/data/SentiWord_info.json
   ```
 
-## 메모
+## 구글 코랩에서 실행 (`99_final_report.ipynb`)
 
-- `99_final_report.ipynb`는 **구글 코랩 전용 자기완결형 노트북**이다. `src` 임포트에 의존하지 않고 필요한 함수를 셀에 직접 풀어쓰며, 상단에 `pip install`·나눔폰트 설치·드라이브 마운트 셀을 둔다.
+`99_final_report.ipynb`는 **코랩에서 그대로 실행되는 자기완결형 노트북**이다. `src` import에 의존하지 않고
+필요한 함수를 셀에 직접 풀어쓰며, 상단에 `pip install`·나눔폰트 설치·드라이브 마운트·감성사전 다운로드 셀을 갖춘다.
+(`01~04`는 로컬에서 `src`를 import하는 개발용 노트북이라 코랩 실행 대상이 아니다.)
+
+**실행 순서**
+
+1. **데이터 업로드** — 빅카인즈 엑셀(들)을 본인 구글 드라이브에 올린다. 예: `내 드라이브/BDA/data/raw/`
+2. **노트북 열기** — `99_final_report.ipynb`를 코랩에서 연다.
+   ([colab.research.google.com](https://colab.research.google.com) → GitHub 탭에서 이 repo URL 붙여넣기, 또는 드라이브에서 열기)
+3. **경로 수정** — `0. 실행 환경 준비`의 **③ 드라이브 마운트 셀**에서 `PROJECT_DIR`을 본인 경로로 바꾼다.
+   ```python
+   PROJECT_DIR = "/content/drive/MyDrive/BDA"   # data/raw/ 가 이 아래에 있어야 함
+   ```
+4. **위에서부터 순서대로 실행** — `런타임 > 모두 실행`. ①pip ②나눔폰트 ③드라이브마운트 ④감성사전 셀이
+   자동으로 환경을 구성한다. (전체 약 8~10분: Okt 토큰화·LDA·감성 점수화 포함)
+5. **토픽 라벨 확인** — `3. LDA` 결과의 토픽 ID 순서는 환경에 따라 달라질 수 있다.
+   출력된 키워드를 보고 `TOPIC_LABELS` 매핑만 맞춰주면 된다. (결론의 수치는 ID 매핑과 무관하게 성립)
+
+> 별도 `pip install`·폰트 설치·`JAVA_HOME` 설정이 필요 없다 — 코랩은 Java가 기본 내장되어 있고, 설치 셀이 나머지를 처리한다.
