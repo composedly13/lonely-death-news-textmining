@@ -1,0 +1,25 @@
+# 빅카인즈 원본 엑셀
+data/raw/*.xlsx
+data/raw/*.xls
+
+# 전처리 산출물 (.gitkeep만 유지)
+data/processed/*
+
+# 제3자 감성사전 (KNU SentiLex) — README의 다운로드 안내 참고
+data/lexicon/
+
+# 생성된 그림 (.gitkeep만 유지)
+outputs/figures/*
+
+# 파이썬 캐시
+__pycache__/
+*.py[cod]
+
+# 주피터 체크포인트
+.ipynb_checkpoints/
+
+# Claude Code 로컬 설정 (개인 권한·경로 — 공개 금지)
+.claude/
+
+# .gitkeep은 추적 유지
+!.gitkeep

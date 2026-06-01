@@ -1,0 +1,13 @@
+pandas
+numpy
+matplotlib
+seaborn
+konlpy
+wordcloud
+gensim
+pyLDAvis
+networkx
+openpyxl
+tqdm
+jupyter
+ipykernel
