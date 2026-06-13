@@ -93,9 +93,7 @@ if IN_COLAB:
               "/content/drive/MyDrive"]
 cands += [".", "..", "../.."]   # 로컬: 노트북과 같은 폴더 / notebooks 하위 / 그 상위
 PROJECT_DIR = next((c for c in cands if glob.glob(f"{c}/data/raw/A/*.xlsx")), None)
-assert PROJECT_DIR, (
-    "\n[ERROR] data/raw/A/*.xlsx 를 찾지 못했습니다.\n"
-    "   이 노트북과 같은 위치(또는 드라이브)에 data/raw/A, data/raw/B 폴더가 있어야 합니다.")
+assert PROJECT_DIR, "data/raw/A/*.xlsx 를 찾지 못했습니다. 이 노트북과 함께 data/raw/A, data/raw/B 폴더가 있어야 합니다."
 RAW_A = f"{PROJECT_DIR}/data/raw/A"
 RAW_B = f"{PROJECT_DIR}/data/raw/B"
 files_a = sorted(glob.glob(f"{RAW_A}/*.xlsx"))
