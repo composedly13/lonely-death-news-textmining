@@ -1,6 +1,12 @@
-# 빅카인즈 원본 엑셀
+# 빅카인즈 원본 엑셀 (하위 폴더 B 포함)
+data/raw/**/*.xlsx
+data/raw/**/*.xls
 data/raw/*.xlsx
 data/raw/*.xls
+
+# 제출 산출물 (zip·데이터 포함 묶음 — 대용량/저작권)
+submissions/
+BDA_FINAL/
 
 # 전처리 산출물 (.gitkeep만 유지)
 data/processed/*

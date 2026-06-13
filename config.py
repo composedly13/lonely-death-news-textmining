@@ -10,7 +10,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 
 DATA_DIR = BASE_DIR / "data"
-RAW_DIR = DATA_DIR / "raw"
+RAW_DIR = DATA_DIR / "raw" / "A"      # 코퍼스 A(고독사·독거노인). 코퍼스 B는 data/raw/B
+RAW_B_DIR = DATA_DIR / "raw" / "B"    # 코퍼스 B(스마트홈·시니어 서비스, 기말과제)
 PROCESSED_DIR = DATA_DIR / "processed"
 
 OUTPUTS_DIR = BASE_DIR / "outputs"

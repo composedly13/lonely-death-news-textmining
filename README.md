@@ -7,32 +7,33 @@
 ```
 BDA/
 ├── data/
-│   ├── raw/                      # 빅카인즈 원본 엑셀 (직접 넣음, repo 미포함)
+│   ├── raw/
+│   │   ├── A/                    # 코퍼스 A: 고독사·독거노인 엑셀 (직접 넣음, repo 미포함)
+│   │   └── B/                    # 코퍼스 B: 스마트홈·시니어 서비스 엑셀 (기말과제용)
 │   ├── processed/                # 전처리 캐시 pkl (생성물, repo 미포함)
 │   └── lexicon/                  # KNU 감성사전 (직접 받음, repo 미포함)
-├── src/                          # 무거운 로직(함수) — 노트북에서 import
-│   ├── __init__.py
-│   ├── preprocess.py             # 엑셀 로드·병합, 정제, Okt 명사추출, 복합어 보존, 불용어
-│   ├── topic_model.py            # LDA 사전/코퍼스, coherence 탐색, 학습, pyLDAvis
-│   ├── network.py                # 동시출현 계산, 네트워크 구성, 중심성, 시각화
-│   └── sentiment.py              # KNU 사전 로드, 감성 토큰(Okt pos), 문서 점수화
 ├── notebooks/
 │   ├── 01_eda.ipynb              # EDA·빈도·워드클라우드
 │   ├── 02_topic_model.ipynb      # LDA 토픽 모델
 │   ├── 03_network.ipynb          # 동시출현 네트워크
 │   ├── 04_sentiment.ipynb        # 감성 분석
-│   └── 99_final_report.ipynb     # 발표용 최종 보고서 (코랩 자기완결형)
-├── outputs/
-│   ├── figures/                  # 그림 png·pyLDAvis html (생성물, repo 미포함)
-│   └── tables/                   # 결과 표 csv
-├── config.py                     # 경로·키워드·불용어·한글폰트 설정
-├── requirements.txt
-├── README.md
-└── .gitignore
+│   ├── 99_final_report.ipynb     # [중간발표] 단일코퍼스 최종 보고서 (코랩 자기완결형)
+│   └── final_exam_gap.ipynb      # [기말] 담론 vs 서비스 2코퍼스 갭 분석 (코랩 자기완결형)
+├── src/                          # 무거운 로직(함수) — 01~04 노트북에서 import
+│   ├── preprocess.py · topic_model.py · network.py · sentiment.py
+├── docs/                         # 문서
+│   ├── 데이터수집_가이드.md       # [기말] 2코퍼스 빅카인즈 수집 명세
+│   └── 제출_설명.md              # [중간발표] 제출 설명서
+├── scripts/                      # 보조 스크립트
+│   └── _build_final_exam.py      # final_exam_gap.ipynb 빌드(1회용)
+├── outputs/                      # 그림·표 (생성물, repo 미포함)
+├── submissions/                  # 제출 산출물 zip (repo 미포함)
+├── config.py · requirements.txt · README.md · .gitignore
 ```
 
-> **repo에 포함되지 않는 것**(`.gitignore`): 원본 뉴스 엑셀(`data/raw/*.xlsx`, 저작권), 전처리 캐시(`data/processed/`),
-> 감성사전(`data/lexicon/`), 그림(`outputs/figures/`), `.claude/`(로컬 설정). → 클론 후 **데이터 넣기 + 감성사전 받기**를 먼저 해야 한다.
+> **repo에 포함되지 않는 것**(`.gitignore`): 원본 뉴스 엑셀(`data/raw/` 및 `data/raw/B/`, 저작권),
+> 전처리 캐시(`data/processed/`), 감성사전(`data/lexicon/`), 그림(`outputs/figures/`),
+> 제출 zip(`submissions/`), `.claude/`(로컬 설정). → 클론 후 **데이터 넣기 + 감성사전 받기**를 먼저 해야 한다.
 
 ## 데이터 수집 명세
 
